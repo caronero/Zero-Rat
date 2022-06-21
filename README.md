@@ -86,11 +86,6 @@ A tool that remasterd for AIRAVAT tool
  1. Install the app in victim's device and give all the permissions after that the connection will show up in web panel.
 
 
-### ❤️Supporters❤️
-[![Stargazers repo roster for @th30neand0nly/AIRAVAT](https://reporoster.com/stars/dark/Th30neAnd0nly/AIRAVAT)](https://github.com/Th30neAnd0nly/AIRAVAT/stargazers)
-
-[![Forkers repo roster for @th30neand0nly/AIRAVAT](https://reporoster.com/forks/dark/Th30neAnd0nly/AIRAVAT)](https://github.com/Th30neAnd0nly/AIRAVAT/network/members)
-
 ## Contact Info 
  1. [Telegram](https://t.me/cn_zd)
 
