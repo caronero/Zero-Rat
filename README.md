@@ -88,6 +88,7 @@ A tool that remasterd for AIRAVAT tool
 
 ## Contact Info 
  1. [Telegram](https://t.me/cn_zd)
+ 2. [Watch full video installation here](https://t.me/cn_zd46/13)
 
 
 ## DISCLAIMER
